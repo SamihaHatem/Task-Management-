@@ -1,1 +1,11 @@
-<p>tasks-page works!</p>
+@if (tasks.isLoading()) {
+  <p>Loading tasks...</p>
+} @else if (tasks.error()) {
+  <p>Failed to load tasks.</p>
+} @else {
+  <h2>Tasks loaded: {{ tasks.value()?.length ?? 0 }}</h2>
+
+  @for (task of tasks.value() ?? []; track task.id) {
+    <p>{{ task.title }}</p>
+  }
+}
