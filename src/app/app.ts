@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { TasksServices } from './core/services/tasksServices/tasks-services';
 
 @Component({
   selector: 'app-root',
