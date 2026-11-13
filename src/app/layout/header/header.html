@@ -1,4 +1,11 @@
 <header class="app-header">
+
+    @if (isMobile()) {
+    <button mat-icon-button aria-label="Toggle navigation menu" (click)="menuClick.emit()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    }
+
     <!-- Brand -->
     <div class="brand">
         <div class="brand-icon">
@@ -8,15 +15,25 @@
         <span>Task Manager</span>
     </div>
 
+    @if (!isMobile()) {
     <!-- Search -->
-    <mat-form-field appearance="outline" class="search-field"   subscriptSizing="dynamic"
->
+    <mat-form-field appearance="outline" class="search-field" subscriptSizing="dynamic">
         <mat-icon>search</mat-icon>
         <input matInput type="search" placeholder="Search tasks..." />
     </mat-form-field>
+    }
+
 
     <!-- Header Actions -->
     <div class="header-actions">
+
+        @if (isMobile()) {
+        <!-- Serach Mobile -->
+        <button mat-icon-button aria-label="Search" class="notification-button">
+            <mat-icon>search</mat-icon>
+        </button>
+        }
+
         <!-- Notifications -->
         <button mat-icon-button aria-label="Notifications" class="notification-button">
             <mat-icon>notifications_none</mat-icon>
