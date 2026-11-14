@@ -1,0 +1,131 @@
+:host {
+  display: block;
+}
+
+.task-card {
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgb(0 0 0 / 6%);
+  }
+
+  h3 {
+    margin: 14px 0 8px;
+    color: #111827;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+.card-top,
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.priority {
+  padding: 4px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: capitalize;
+
+  &.high {
+    background: #fee2e2;
+    color: #dc2626;
+  }
+
+  &.medium {
+    background: #fef3c7;
+    color: #d97706;
+  }
+
+  &.low {
+    background: #dcfce7;
+    color: #16a34a;
+  }
+}
+
+.more-button {
+  border: 0;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.description {
+  margin: 0 0 14px;
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.tag {
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 10px;
+}
+
+.card-footer {
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.assignee {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+
+  img {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  span {
+    overflow: hidden;
+    color: #475569;
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.due-date {
+  flex-shrink: 0;
+  color: #64748b;
+  font-size: 11px;
+
+  span {
+    color: #94a3b8;
+  }
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.delete-button:hover {
+  color: #dc2626;
+  background: #fee2e2;
+}

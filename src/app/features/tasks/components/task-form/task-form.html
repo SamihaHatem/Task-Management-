@@ -1,0 +1,100 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="task-form">
+  <div class="form-field">
+    <label for="title">Task Title</label>
+    <input
+      id="title"
+      type="text"
+      formControlName="title"
+      placeholder="Enter task title"
+    />
+
+    @if (taskForm.controls.title.touched && taskForm.controls.title.errors) {
+      <small class="error">
+        @if (taskForm.controls.title.hasError('required')) {
+          Title is required.
+        } @else if (taskForm.controls.title.hasError('maxlength')) {
+          Title cannot exceed 100 characters.
+        }
+      </small>
+    }
+  </div>
+
+  <div class="form-field">
+    <label for="description">Description</label>
+    <textarea
+      id="description"
+      formControlName="description"
+      placeholder="Describe the task"
+      rows="4"
+    ></textarea>
+
+    @if (
+      taskForm.controls.description.touched &&
+      taskForm.controls.description.errors
+    ) {
+      <small class="error">
+        @if (taskForm.controls.description.hasError('required')) {
+          Description is required.
+        } @else if (taskForm.controls.description.hasError('maxlength')) {
+          Description cannot exceed 500 characters.
+        }
+      </small>
+    }
+  </div>
+
+  <div class="form-row">
+    <div class="form-field">
+      <label for="priority">Priority</label>
+      <select id="priority" formControlName="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="status">Status</label>
+      <select id="status" formControlName="status">
+        <option value="todo">To Do</option>
+        <option value="in_progress">In Progress</option>
+        <option value="done">Done</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-field">
+      <label for="dueDate">Due Date</label>
+      <input id="dueDate" type="date" formControlName="dueDate" />
+
+      @if (
+        taskForm.controls.dueDate.touched &&
+        taskForm.controls.dueDate.hasError('required')
+      ) {
+        <small class="error">Due date is required.</small>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="assignee">Assignee</label>
+      <select id="assignee" formControlName="assigneeId">
+        <option value="">Select assignee</option>
+
+        @for (assignee of assignees(); track assignee.id) {
+          <option [value]="assignee.id">{{ assignee.name }}</option>
+        }
+      </select>
+
+      @if (
+        taskForm.controls.assigneeId.touched &&
+        taskForm.controls.assigneeId.hasError('required')
+      ) {
+        <small class="error">Please select an assignee.</small>
+      }
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit">Save Task</button>
+  </div>
+</form>

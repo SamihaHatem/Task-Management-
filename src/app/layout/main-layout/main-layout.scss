@@ -7,11 +7,16 @@
   display: flex;
   min-height: 100vh;
   background-color: #f8fafc;
+  width: 100vw;
 }
 
 app-sidenav {
   flex: 0 0 250px;
   min-height: 100vh;
+}
+
+.mat-sidenav-content{
+    width: 100vw;
 }
 
 .main-content {

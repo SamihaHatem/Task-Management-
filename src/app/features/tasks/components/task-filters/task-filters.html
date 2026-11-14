@@ -1,0 +1,48 @@
+<form [formGroup]="filtersForm" class="filters-form">
+  <!-- Search -->
+  <div class="search-control">
+    <label for="task-search">Search tasks</label>
+    <input
+      id="task-search"
+      type="search"
+      formControlName="search"
+      placeholder="Search by title or description..."
+    />
+  </div>
+
+  <!-- Status Filter -->
+  <div class="filter-control">
+    <label for="task-status">Status</label>
+    <select id="task-status" formControlName="status">
+      <option value="all">All Statuses</option>
+      <option value="todo">To Do</option>
+      <option value="in_progress">In Progress</option>
+      <option value="done">Done</option>
+    </select>
+  </div>
+
+  <!-- Priority Filter -->
+  <div class="filter-control">
+    <label for="task-priority">Priority</label>
+    <select id="task-priority" formControlName="priority">
+      <option value="all">All Priorities</option>
+      <option value="high">High</option>
+      <option value="medium">Medium</option>
+      <option value="low">Low</option>
+    </select>
+  </div>
+
+  <!-- Assignee Filter -->
+  <div class="filter-control">
+    <label for="task-assignee">Assignee</label>
+    <select id="task-assignee" formControlName="assigneeId">
+      <option value="all">All Assignees</option>
+
+      @for (assignee of assignees(); track assignee.id) {
+        <option [value]="assignee.id">
+          {{ assignee.name }}
+        </option>
+      }
+    </select>
+  </div>
+</form>

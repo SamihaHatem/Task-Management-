@@ -1,0 +1,18 @@
+<div class="task-board">
+    @for (column of columns(); track column.status) {
+    <section class="task-column">
+        <div class="column-header">
+            <h2>{{ column.title }}</h2>
+            <span class="task-count">{{ column.tasks.length }}</span>
+        </div>
+
+        <div class="column-content">
+            @for (task of column.tasks; track task.id) {
+            <app-task-card [task]="task" (edit)="editTask.emit($event)" (delete)="deleteTask.emit($event)" />
+            } @empty {
+            <p class="empty-state">No tasks yet</p>
+            }
+        </div>
+    </section>
+    }
+</div>

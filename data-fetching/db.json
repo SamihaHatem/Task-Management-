@@ -4,7 +4,7 @@
       "id": "task-001",
       "title": "Design new homepage layout",
       "description": "Create wireframes and mockups for the new homepage redesign with modern UI elements",
-      "status": "todo",
+      "status": "in_progress",
       "priority": "high",
       "dueDate": "2026-11-15",
       "assignee": {
@@ -17,26 +17,8 @@
         "Design"
       ],
       "createdAt": "2026-11-11T13:28:38.495Z",
-      "updatedAt": "2026-11-13T13:28:38.495Z"
-    },
-    {
-      "id": "task-002",
-      "title": "Update documentation",
-      "description": "Review and update API documentation for v2.0 release",
-      "status": "todo",
-      "priority": "medium",
-      "dueDate": "2026-11-18",
-      "assignee": {
-        "id": "user-002",
-        "name": "Sarah Smith",
-        "avatar": "SS",
-        "email": "sarah.smith@company.com"
-      },
-      "tags": [
-        "Documentation"
-      ],
-      "createdAt": "2026-11-10T13:28:38.495Z",
-      "updatedAt": "2026-11-12T13:28:38.495Z"
+      "updatedAt": "2026-11-14T12:19:59.881Z",
+      "assigneeId": "user-001"
     },
     {
       "id": "task-003",
@@ -332,6 +314,26 @@
       ],
       "createdAt": "2026-10-30T13:28:38.495Z",
       "updatedAt": "2026-11-08T13:28:38.495Z"
+    },
+    {
+      "title": "test",
+      "description": "ttest",
+      "priority": "medium",
+      "status": "todo",
+      "dueDate": "2026-12-10",
+      "assigneeId": "user-004",
+      "assignee": {
+        "id": "user-004",
+        "name": "Emily Davis",
+        "avatar": "ED",
+        "email": "emily.davis@company.com"
+      },
+      "tags": [],
+      "id": "fa47cf82-9b44-45c0-997b-07b6dc3ed0d6",
+      "createdAt": "2026-11-14T12:04:38.416Z",
+      "updatedAt": "2026-11-14T12:04:38.416Z",
+      "isOverdue": false,
+      "completedAt": ""
     }
   ],
   "statistics": [
