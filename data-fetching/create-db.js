@@ -11,10 +11,16 @@ const statisticsData = JSON.parse(
   fs.readFileSync(path.join(dataDir, 'statistics.json'), 'utf-8')
 );
 
+const usersData = JSON.parse(
+  fs.readFileSync(path.join(dataDir, 'users.json'), 'utf-8')
+);
+
 const database = {
   tasks: tasksData.tasks,
   statistics: statisticsData.statistics,
+  users: usersData.users,
 };
+
 
 fs.writeFileSync(
   path.join(dataDir, 'db.json'),

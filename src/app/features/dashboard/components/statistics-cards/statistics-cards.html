@@ -1,0 +1,28 @@
+<div class="statistics-grid">
+  @for (stat of statistics(); track stat.id) {
+    <article class="stat-card">
+      <div class="card-header">
+        <span class="stat-title">{{ stat.title }}</span>
+
+        <div class="stat-icon" [style.backgroundColor]="stat.color">
+          <span>{{ stat.icon }}</span>
+        </div>
+      </div>
+
+      <div class="stat-value">{{ stat.value }}</div>
+
+      <div class="card-footer">
+        <span
+          class="change"
+          [class.positive]="stat.changeType === 'positive'"
+          [class.negative]="stat.changeType === 'negative'"
+          [class.neutral]="stat.changeType === 'neutral'"
+        >
+          {{ stat.change }}
+        </span>
+
+        <span class="change-label">{{ stat.changeLabel }}</span>
+      </div>
+    </article>
+  }
+</div>

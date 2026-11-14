@@ -1,0 +1,28 @@
+<section class="dashboard-page">
+    <header class="dashboard-header">
+        <div>
+            <h1>Dashboard</h1>
+            <p>Overview of your team's tasks and progress</p>
+        </div>
+    </header>
+
+    @if (statistics.isLoading()) {
+    <p>Loading statistics...</p>
+    } @else if (statistics.error()) {
+    <p>Failed to load statistics.</p>
+    } @else {
+    <app-statistics-cards [statistics]="statistics.value() ?? []" />
+    }
+
+    @if (tasks.isLoading()) {
+    <p>Loading task charts...</p>
+    } @else if (tasks.error()) {
+    <p>Failed to load task charts.</p>
+    } @else {
+    <app-task-charts [tasks]="tasks.value() ?? []" />
+    }
+
+    <app-recent-activity [activities]="recentActivities()" />
+    
+    <app-users-list />
+</section>

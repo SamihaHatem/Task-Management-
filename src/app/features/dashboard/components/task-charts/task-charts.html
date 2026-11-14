@@ -1,0 +1,27 @@
+<div class="charts-grid">
+  <section class="chart-card">
+    <h2>Tasks by Status</h2>
+
+    <div class="chart-container">
+      <canvas
+        baseChart
+        [type]="'doughnut'"
+        [data]="statusChartData()"
+        [options]="statusChartOptions"
+      ></canvas>
+    </div>
+  </section>
+
+  <section class="chart-card">
+    <h2>Tasks by Priority</h2>
+
+    <div class="chart-container">
+      <canvas
+        baseChart
+        [type]="'bar'"
+        [data]="priorityChartData()"
+        [options]="priorityChartOptions"
+      ></canvas>
+    </div>
+  </section>
+</div>

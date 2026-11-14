@@ -1,0 +1,42 @@
+<section class="activity-card">
+  <header class="activity-header">
+    <h2>Recent Activity</h2>
+    <span>Latest updates</span>
+  </header>
+
+  <div class="activity-list">
+    @for (activity of activities(); track activity.id) {
+      <article class="activity-item">
+        <div
+          class="activity-icon"
+          [class.created]="activity.action === 'created'"
+          [class.updated]="activity.action === 'updated'"
+          [class.completed]="activity.action === 'completed'"
+        >
+          @switch (activity.action) {
+            @case ('created') {
+              <span>+</span>
+            }
+            @case ('updated') {
+              <span>↻</span>
+            }
+            @case ('completed') {
+              <span>✓</span>
+            }
+          }
+        </div>
+
+        <div class="activity-content">
+          <p>
+            <strong>{{ activity.taskTitle }}</strong>
+            was {{ activity.action }}
+          </p>
+
+          <time>{{ activity.timestamp | date: 'medium' }}</time>
+        </div>
+      </article>
+    } @empty {
+      <p class="empty-state">No recent activity yet.</p>
+    }
+  </div>
+</section>
