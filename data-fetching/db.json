@@ -8,16 +8,17 @@
       "priority": "high",
       "dueDate": "2026-11-16",
       "assignee": {
-        "id": "user-001",
-        "name": "John Doe",
-        "avatar": "JD",
-        "email": "john.doe@company.com"
+        "id": "user-002",
+        "name": "Sarah Smith",
+        "avatar": "SS",
+        "email": "sarah.smith@company.com"
       },
       "tags": [
         "Design"
       ],
       "createdAt": "2026-11-12T20:28:14.771Z",
-      "updatedAt": "2026-11-14T20:28:14.771Z"
+      "updatedAt": "2026-11-14T20:58:12.760Z",
+      "assigneeId": "user-002"
     },
     {
       "id": "task-002",

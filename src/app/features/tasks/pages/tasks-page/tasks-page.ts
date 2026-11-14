@@ -7,6 +7,7 @@ import { TaskFilters } from '../../components/task-filters/task-filters';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { TaskForm } from '../../components/task-form/task-form';
 import { TaskI } from '../../../../core/models/task-i';
+import { UsersServices } from '../../../../core/services/usersServices/users-services';
 
 @Component({
   selector: 'app-tasks-page',
@@ -25,15 +26,11 @@ export class TasksPage {
     assigneeId: 'all',
   });
 
+  private readonly usersApi = inject(UsersServices);
+
+  readonly users = this.usersApi.usersResource;
+
   readonly allTasks = computed(() => this.tasks.value() ?? []);
-
-  readonly assignees = computed(() => {
-    const uniqueAssignees = new Map(
-      this.allTasks().map((task) => [task.assignee.id, task.assignee]),
-    );
-
-    return Array.from(uniqueAssignees.values());
-  });
 
   readonly filteredTasks = computed(() => {
     const tasks = this.allTasks();
@@ -77,11 +74,13 @@ export class TasksPage {
       autoFocus: 'first-tabbable',
     });
 
-    dialogRef.componentRef?.setInput('assignees', this.assignees());
+    const users = this.users.value() ?? [];
+
+    dialogRef.componentRef?.setInput('assignees', users);
 
     console.log('11')
     dialogRef.componentInstance.save.subscribe((formValue) => {
-      const assignee = this.assignees().find(
+      const assignee = (this.users.value() ?? []).find(
         (user) => user.id === formValue.assigneeId,
       );
 
@@ -114,11 +113,13 @@ export class TasksPage {
       autoFocus: 'first-tabbable',
     });
 
-    dialogRef.componentRef?.setInput('assignees', this.assignees());
+    const users = this.users.value() ?? [];
+
+    dialogRef.componentRef?.setInput('assignees', users);
     dialogRef.componentRef?.setInput('initialTask', task);
 
     dialogRef.componentInstance.save.subscribe((formValue) => {
-      const assignee = this.assignees().find(
+      const assignee = (this.users.value() ?? []).find(
         (user) => user.id === formValue.assigneeId,
       );
 

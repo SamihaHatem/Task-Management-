@@ -6,7 +6,7 @@
   <p>Failed to load tasks.</p>
 } @else {
   <app-task-filters
-    [assignees]="assignees()"
+    [assignees]="users.value() ?? []"
     (filtersChange)="onFiltersChange($event)"
   />
 

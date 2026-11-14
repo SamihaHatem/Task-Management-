@@ -1,6 +1,6 @@
 import { httpResource } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UsersI } from '../../models/users-i';
+import { AssigneeI } from '../../models/assignee-i';
 
 @Injectable({
   providedIn: 'root',
@@ -8,5 +8,5 @@ import { UsersI } from '../../models/users-i';
 export class UsersServices {
   private readonly apiUrl = 'http://localhost:3000/users';
 
-  readonly usersResource = httpResource<UsersI[]>(() => this.apiUrl);
+  readonly usersResource = httpResource<AssigneeI[]>(() => this.apiUrl);
 }
