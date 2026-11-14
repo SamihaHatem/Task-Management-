@@ -8,6 +8,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { TaskForm } from '../../components/task-form/task-form';
 import { TaskI } from '../../../../core/models/task-i';
 import { UsersServices } from '../../../../core/services/usersServices/users-services';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-tasks-page',
@@ -25,6 +26,7 @@ export class TasksPage {
     priority: 'all',
     assigneeId: 'all',
   });
+  private readonly snackBar = inject(MatSnackBar);
 
   private readonly usersApi = inject(UsersServices);
 
@@ -98,9 +100,19 @@ export class TasksPage {
         next: () => {
           this.tasks.reload();
           dialogRef.close();
+
+          this.snackBar.open('Task created successfully!', 'Close', {
+            duration: 3000,
+            horizontalPosition: 'end',
+            verticalPosition: 'top',
+          });
         },
-        error: (error) => {
-          console.error('Failed to create task:', error);
+        error: () => {
+          this.snackBar.open('Failed to create task. Please try again.', 'Close', {
+            duration: 4000,
+            horizontalPosition: 'end',
+            verticalPosition: 'top',
+          });
         },
       });
     });
@@ -135,9 +147,19 @@ export class TasksPage {
         next: () => {
           this.tasks.reload();
           dialogRef.close();
+
+          this.snackBar.open('Task updated successfully!', 'Close', {
+            duration: 3000,
+            horizontalPosition: 'end',
+            verticalPosition: 'top',
+          });
         },
-        error: (error) => {
-          console.error('Failed to update task:', error);
+        error: () => {
+          this.snackBar.open('Failed to update task. Please try again.', 'Close', {
+            duration: 4000,
+            horizontalPosition: 'end',
+            verticalPosition: 'top',
+          });
         },
       });
     });
@@ -155,9 +177,19 @@ export class TasksPage {
     this.tasksApi.deleteTask(task.id).subscribe({
       next: () => {
         this.tasks.reload();
+
+        this.snackBar.open('Task deleted successfully!', 'Close', {
+          duration: 3000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+        });
       },
-      error: (error) => {
-        console.error('Failed to delete task:', error);
+      error: () => {
+        this.snackBar.open('Failed to delete task. Please try again.', 'Close', {
+          duration: 4000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+        });
       },
     });
   }
