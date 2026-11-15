@@ -7,14 +7,19 @@ describe('StatisticsCards', () => {
   let fixture: ComponentFixture<StatisticsCards>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [StatisticsCards],
-    }).compileComponents();
+  await TestBed.configureTestingModule({
+    imports: [StatisticsCards],
+  }).compileComponents();
 
-    fixture = TestBed.createComponent(StatisticsCards);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
+  fixture = TestBed.createComponent(StatisticsCards);
+
+  fixture.componentRef.setInput('statistics', []);
+
+  fixture.detectChanges();
+
+  component = fixture.componentInstance;
+  await fixture.whenStable();
+});
 
   it('should create', () => {
     expect(component).toBeTruthy();

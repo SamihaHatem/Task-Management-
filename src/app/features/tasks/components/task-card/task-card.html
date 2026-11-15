@@ -27,7 +27,9 @@
 
     <div class="card-footer">
         <div class="assignee">
-            <img [src]="task().assignee.avatar" [alt]="task().assignee.name" />
+            <div class="assignee-avatar">
+                {{ task().assignee.avatar }}
+            </div>
             <span>{{ task().assignee.name }}</span>
         </div>
 

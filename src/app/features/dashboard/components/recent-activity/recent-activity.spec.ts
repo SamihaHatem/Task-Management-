@@ -6,15 +6,20 @@ describe('RecentActivity', () => {
   let component: RecentActivity;
   let fixture: ComponentFixture<RecentActivity>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [RecentActivity],
-    }).compileComponents();
+ beforeEach(async () => {
+  await TestBed.configureTestingModule({
+    imports: [RecentActivity],
+  }).compileComponents();
 
-    fixture = TestBed.createComponent(RecentActivity);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
+  fixture = TestBed.createComponent(RecentActivity);
+
+  fixture.componentRef.setInput('activities', []);
+
+  fixture.detectChanges();
+
+  component = fixture.componentInstance;
+  await fixture.whenStable();
+});
 
   it('should create', () => {
     expect(component).toBeTruthy();

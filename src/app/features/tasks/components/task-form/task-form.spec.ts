@@ -6,15 +6,20 @@ describe('TaskForm', () => {
   let component: TaskForm;
   let fixture: ComponentFixture<TaskForm>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [TaskForm],
-    }).compileComponents();
+ beforeEach(async () => {
+  await TestBed.configureTestingModule({
+    imports: [TaskForm],
+  }).compileComponents();
 
-    fixture = TestBed.createComponent(TaskForm);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
+  fixture = TestBed.createComponent(TaskForm);
+
+  fixture.componentRef.setInput('assignees', []);
+
+  fixture.detectChanges();
+
+  component = fixture.componentInstance;
+  await fixture.whenStable();
+});
 
   it('should create', () => {
     expect(component).toBeTruthy();

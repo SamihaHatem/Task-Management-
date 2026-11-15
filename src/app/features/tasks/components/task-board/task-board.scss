@@ -82,6 +82,13 @@
 
 @media (max-width: 900px) {
     .task-board {
-        grid-template-columns: repeat(3, minmax(260px, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        overflow-x: visible;
+    }
+}
+
+@media (max-width: 600px) {
+    .task-board {
+        grid-template-columns: minmax(0, 1fr);
     }
 }

@@ -82,6 +82,10 @@
 }
 
 .card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 8px;
   padding-top: 12px;
   border-top: 1px solid #f1f5f9;
@@ -93,12 +97,18 @@
   gap: 7px;
   min-width: 0;
 
-  img {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
+.assignee-avatar {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e0e7ff;
+  color: #4338ca;
+  font-size: 10px;
+  font-weight: 600;
+}
 
   span {
     overflow: hidden;

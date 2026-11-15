@@ -6,15 +6,20 @@ describe('TaskFilters', () => {
   let component: TaskFilters;
   let fixture: ComponentFixture<TaskFilters>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [TaskFilters],
-    }).compileComponents();
+beforeEach(async () => {
+  await TestBed.configureTestingModule({
+    imports: [TaskFilters],
+  }).compileComponents();
 
-    fixture = TestBed.createComponent(TaskFilters);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
+  fixture = TestBed.createComponent(TaskFilters);
+
+  fixture.componentRef.setInput('assignees', []);
+
+  fixture.detectChanges();
+
+  component = fixture.componentInstance;
+  await fixture.whenStable();
+});
 
   it('should create', () => {
     expect(component).toBeTruthy();

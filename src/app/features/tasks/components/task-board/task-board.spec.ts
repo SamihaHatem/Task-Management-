@@ -6,12 +6,16 @@ describe('TaskBoard', () => {
   let component: TaskBoard;
   let fixture: ComponentFixture<TaskBoard>;
 
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TaskBoard],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TaskBoard);
+    fixture.componentRef.setInput('tasks', []);
+    fixture.detectChanges();
+
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
