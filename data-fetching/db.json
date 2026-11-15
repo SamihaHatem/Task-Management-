@@ -193,27 +193,6 @@
       "updatedAt": "2026-11-14T22:31:10.053Z"
     },
     {
-      "id": "task-017",
-      "title": "Update payment gateway integration",
-      "description": "Migrate to new payment provider API and update billing logic",
-      "status": "in_progress",
-      "priority": "high",
-      "dueDate": "2026-11-14",
-      "isOverdue": true,
-      "assignee": {
-        "id": "user-001",
-        "name": "John Doe",
-        "avatar": "JD",
-        "email": "john.doe@company.com"
-      },
-      "tags": [
-        "Backend",
-        "Critical"
-      ],
-      "createdAt": "2026-11-01T22:31:10.053Z",
-      "updatedAt": "2026-11-15T22:31:10.053Z"
-    },
-    {
       "id": "task-009",
       "title": "Fix critical login bug",
       "description": "Resolved issue preventing users from logging in on mobile devices",
@@ -234,46 +213,6 @@
       "updatedAt": "2026-11-15T22:31:10.053Z"
     },
     {
-      "id": "task-010",
-      "title": "Setup CI/CD pipeline",
-      "description": "Configured GitHub Actions for automated testing and deployment",
-      "status": "done",
-      "priority": "medium",
-      "dueDate": "2026-11-13",
-      "completedAt": "2026-11-14T22:31:10.053Z",
-      "assignee": {
-        "id": "user-001",
-        "name": "John Doe",
-        "avatar": "JD",
-        "email": "john.doe@company.com"
-      },
-      "tags": [
-        "DevOps"
-      ],
-      "createdAt": "2026-11-06T22:31:10.053Z",
-      "updatedAt": "2026-11-14T22:31:10.053Z"
-    },
-    {
-      "id": "task-011",
-      "title": "Write unit tests",
-      "description": "Add comprehensive unit tests for authentication module",
-      "status": "done",
-      "priority": "high",
-      "dueDate": "2026-11-12",
-      "completedAt": "2026-11-13T22:31:10.053Z",
-      "assignee": {
-        "id": "user-002",
-        "name": "Sarah Smith",
-        "avatar": "SS",
-        "email": "sarah.smith@company.com"
-      },
-      "tags": [
-        "Testing"
-      ],
-      "createdAt": "2026-11-05T22:31:10.053Z",
-      "updatedAt": "2026-11-13T22:31:10.053Z"
-    },
-    {
       "id": "task-012",
       "title": "Refactor payment module",
       "description": "Clean up and optimize payment processing code",
@@ -292,26 +231,6 @@
       ],
       "createdAt": "2026-11-03T22:31:10.053Z",
       "updatedAt": "2026-11-12T22:31:10.053Z"
-    },
-    {
-      "id": "task-013",
-      "title": "Security audit",
-      "description": "Conduct comprehensive security review of the application",
-      "status": "done",
-      "priority": "high",
-      "dueDate": "2026-11-10",
-      "completedAt": "2026-11-11T22:31:10.053Z",
-      "assignee": {
-        "id": "user-001",
-        "name": "John Doe",
-        "avatar": "JD",
-        "email": "john.doe@company.com"
-      },
-      "tags": [
-        "Security"
-      ],
-      "createdAt": "2026-11-02T22:31:10.053Z",
-      "updatedAt": "2026-11-11T22:31:10.053Z"
     },
     {
       "id": "task-014",

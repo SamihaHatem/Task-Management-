@@ -1,4 +1,9 @@
-import { Component, input, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -11,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
   imports: [MatIconModule, MatButtonModule, MatBadgeModule, MatMenuModule, MatFormFieldModule, MatInputModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Header {
   readonly isMobile = input(false);

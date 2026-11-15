@@ -1,4 +1,9 @@
-import { Component, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { Sidebar } from '../sidebar/sidebar';
 import { RouterOutlet } from '@angular/router';
 import { Header } from '../header/header';
@@ -17,6 +22,7 @@ import { map } from 'rxjs';
     Header,
   ], templateUrl: './main-layout.html',
   styleUrl: './main-layout.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainLayout {
   private readonly breakpointObserver = inject(BreakpointObserver);
