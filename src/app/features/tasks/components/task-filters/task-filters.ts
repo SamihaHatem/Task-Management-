@@ -1,4 +1,11 @@
-import { Component, DestroyRef, inject, input, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  inject,
+  input,
+  output,
+} from '@angular/core';
 import { AssigneeI } from '../../../../core/models/assignee-i';
 import { TaskFilterI } from '../../../../core/models/task-filter-i';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -10,6 +17,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   imports: [ReactiveFormsModule],
   templateUrl: './task-filters.html',
   styleUrl: './task-filters.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskFilters {
   readonly assignees = input.required<AssigneeI[]>();

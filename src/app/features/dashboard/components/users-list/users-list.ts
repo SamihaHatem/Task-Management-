@@ -1,4 +1,8 @@
-import { Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+} from '@angular/core';
 import { UsersServices } from '../../../../core/services/usersServices/users-services';
 
 @Component({
@@ -6,6 +10,7 @@ import { UsersServices } from '../../../../core/services/usersServices/users-ser
   imports: [],
   templateUrl: './users-list.html',
   styleUrl: './users-list.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersList {
   private readonly usersApi = inject(UsersServices);

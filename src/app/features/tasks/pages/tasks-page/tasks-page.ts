@@ -1,4 +1,10 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  signal,
+} from '@angular/core';
 import { TasksServices } from '../../../../core/services/tasksServices/tasks-services';
 import { TasksHeader } from '../../components/tasks-header/tasks-header';
 import { TaskBoard } from '../../components/task-board/task-board';
@@ -15,6 +21,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
   imports: [TasksHeader, TaskBoard, TaskFilters, MatDialogModule],
   templateUrl: './tasks-page.html',
   styleUrl: './tasks-page.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class TasksPage {
   private readonly tasksApi = inject(TasksServices);

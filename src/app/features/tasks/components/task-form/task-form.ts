@@ -1,13 +1,33 @@
-import { Component, input, OnInit, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  OnInit,
+  output,
+} from '@angular/core';
 import { AssigneeI } from '../../../../core/models/assignee-i';
 import { TaskStatus, TaskPriority, TaskI } from '../../../../core/models/task-i';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
+
+function noWhitespaceValidator(
+  control: AbstractControl,
+): ValidationErrors | null {
+  return control.value?.trim() ? null : { whitespace: true };
+}
 
 @Component({
   selector: 'app-task-form',
   imports: [ReactiveFormsModule],
   templateUrl: './task-form.html',
   styleUrl: './task-form.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskForm implements OnInit {
   readonly assignees = input.required<AssigneeI[]>();
@@ -25,11 +45,11 @@ export class TaskForm implements OnInit {
   readonly taskForm = new FormGroup({
     title: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required, Validators.maxLength(100)],
+      validators: [Validators.required, Validators.maxLength(100), noWhitespaceValidator],
     }),
     description: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required, Validators.maxLength(500)],
+      validators: [Validators.required, Validators.maxLength(500), noWhitespaceValidator],
     }),
     priority: new FormControl<TaskPriority>('medium', {
       nonNullable: true,

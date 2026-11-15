@@ -1,4 +1,9 @@
-import { Component, input, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 import { TaskI } from '../../../../core/models/task-i';
 import { DatePipe, TitleCasePipe } from '@angular/common';
 @Component({
@@ -6,6 +11,7 @@ import { DatePipe, TitleCasePipe } from '@angular/common';
   imports: [TitleCasePipe, DatePipe],
   templateUrl: './task-card.html',
   styleUrl: './task-card.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskCard {
   readonly task = input.required<TaskI>();

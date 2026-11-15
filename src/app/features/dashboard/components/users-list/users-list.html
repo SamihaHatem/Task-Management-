@@ -3,8 +3,6 @@
         <h3>Team Members</h3>
         <span>{{ users.value()?.length ?? 0 }} Members</span>
     </div>
-<p>Loading: {{ users.isLoading() }}</p>
-<p>Error: {{ users.error() }}</p>
 
     @if (users.isLoading()) {
     <p>Loading team members...</p>

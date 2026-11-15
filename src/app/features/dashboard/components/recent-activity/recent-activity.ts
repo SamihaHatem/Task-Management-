@@ -1,4 +1,8 @@
-import { Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+} from '@angular/core';
 import { RecentActivityI } from '../../../../core/models/recent-activity-i';
 import { DatePipe } from '@angular/common';
 
@@ -7,8 +11,9 @@ import { DatePipe } from '@angular/common';
   imports: [DatePipe],
   templateUrl: './recent-activity.html',
   styleUrl: './recent-activity.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RecentActivity {
-    readonly activities = input.required<RecentActivityI[]>();
+  readonly activities = input.required<RecentActivityI[]>();
 
 }

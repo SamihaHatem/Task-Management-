@@ -1,4 +1,8 @@
-import { Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+} from '@angular/core';
 import { StatisticI } from '../../../../core/models/statistic-i';
 
 @Component({
@@ -6,6 +10,7 @@ import { StatisticI } from '../../../../core/models/statistic-i';
   imports: [],
   templateUrl: './statistics-cards.html',
   styleUrl: './statistics-cards.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatisticsCards {
   readonly statistics = input.required<StatisticI[]>();

@@ -1,28 +1,28 @@
 <section class="dashboard-page">
-    <header class="dashboard-header">
-        <div>
-            <h1>Dashboard</h1>
-            <p>Overview of your team's tasks and progress</p>
-        </div>
-    </header>
-
-    @if (statistics.isLoading()) {
-    <p>Loading statistics...</p>
-    } @else if (statistics.error()) {
-    <div class="api-state error-state">
-        <p>Failed to load statistics.</p>
-
-        <button type="button" (click)="statistics.reload()">
-            Try Again
-        </button>
+  <header class="dashboard-header">
+    <div>
+      <h1>Dashboard</h1>
+      <p>Overview of your team's tasks and progress</p>
     </div>
-    } @else {
-    <app-statistics-cards [statistics]="statistics.value() ?? []" />
-    }
+  </header>
 
-    @if (tasks.isLoading()) {
+  @if (statistics.isLoading()) {
+  <p>Loading statistics...</p>
+  } @else if (statistics.error()) {
+  <div class="api-state error-state">
+    <p>Failed to load statistics.</p>
+
+    <button type="button" (click)="statistics.reload()">
+      Try Again
+    </button>
+  </div>
+  } @else {
+  <app-statistics-cards [statistics]="statistics.value() ?? []" />
+  }
+
+  @if (tasks.isLoading()) {
   <p>Loading task charts...</p>
-} @else if (tasks.error()) {
+  } @else if (tasks.error()) {
   <div class="api-state error-state">
     <p>Failed to load task charts.</p>
 
@@ -30,11 +30,16 @@
       Try Again
     </button>
   </div>
-} @else {
+  } @else {
   <app-task-charts [tasks]="tasks.value() ?? []" />
-}
+  }
 
-    <app-recent-activity [activities]="recentActivities()" />
-
-    <app-users-list />
+  @if (tasks.isLoading()) {
+  <p>Loading recent activity...</p>
+  } @else if (tasks.error()) {
+  <p>Couldn't load recent activity.</p>
+  } @else {
+  <app-recent-activity [activities]="recentActivities()" />
+  }
+  <app-users-list />
 </section>

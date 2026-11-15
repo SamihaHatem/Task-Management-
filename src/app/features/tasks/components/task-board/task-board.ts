@@ -1,4 +1,10 @@
-import { Component, computed, input, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+  output,
+} from '@angular/core';
 import { TaskI } from '../../../../core/models/task-i';
 import { TaskCard } from '../task-card/task-card';
 
@@ -7,6 +13,7 @@ import { TaskCard } from '../task-card/task-card';
   imports: [TaskCard],
   templateUrl: './task-board.html',
   styleUrl: './task-board.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskBoard {
   readonly tasks = input.required<TaskI[]>();

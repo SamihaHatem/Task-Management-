@@ -1,4 +1,9 @@
-import { Component, computed, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+} from '@angular/core';
 import { TaskI } from '../../../../core/models/task-i';
 import { ChartData, ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
@@ -8,9 +13,10 @@ import { BaseChartDirective } from 'ng2-charts';
   imports: [BaseChartDirective],
   templateUrl: './task-charts.html',
   styleUrl: './task-charts.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskCharts {
-   readonly tasks = input.required<TaskI[]>();
+  readonly tasks = input.required<TaskI[]>();
 
   readonly statusChartData = computed<ChartData<'doughnut'>>(() => {
     const tasks = this.tasks();
