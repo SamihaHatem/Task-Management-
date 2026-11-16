@@ -1,41 +1,42 @@
 <article class="task-card">
-    <div class="card-top">
-        <span class="priority" [class]="task().priority">
-            {{ task().priority | titlecase }}
-        </span>
+  <div class="card-top">
+    <span class="priority" [class]="task().priority">
+      {{ task().priority | titlecase }}
+    </span>
 
+    <div class="card-actions">
+      <button class="more-button" aria-label="Edit task" (click)="edit.emit(task())">✎</button>
+      <button
+        class="more-button delete-button"
+        aria-label="Delete task"
+        (click)="delete.emit(task())"
+      >
+        🗑
+      </button>
+    </div>
+  </div>
 
-        <div class="card-actions">
-            <button class="more-button" aria-label="Edit task" (click)="edit.emit(task())">
-                ✎
-            </button>
-            <button class="more-button delete-button" aria-label="Delete task" (click)="delete.emit(task())">
-                🗑
-            </button>
-        </div>
+  <h3>{{ task().title }}</h3>
+
+  <p class="description">{{ task().description }}</p>
+
+  <div class="tags">
+    @for (tag of task().tags; track tag) {
+      <span class="tag">{{ tag }}</span>
+    }
+  </div>
+
+  <div class="card-footer">
+    <div class="assignee">
+      <div class="assignee-avatar">
+        {{ task().assignee.avatar }}
+      </div>
+      <span>{{ task().assignee.name }}</span>
     </div>
 
-    <h3>{{ task().title }}</h3>
-
-    <p class="description">{{ task().description }}</p>
-
-    <div class="tags">
-        @for (tag of task().tags; track tag) {
-        <span class="tag">{{ tag }}</span>
-        }
+    <div class="due-date">
+      <span>Due:</span>
+      {{ task().dueDate | date: 'MMM d' }}
     </div>
-
-    <div class="card-footer">
-        <div class="assignee">
-            <div class="assignee-avatar">
-                {{ task().assignee.avatar }}
-            </div>
-            <span>{{ task().assignee.name }}</span>
-        </div>
-
-        <div class="due-date">
-            <span>Due:</span>
-            {{ task().dueDate | date: 'MMM d' }}
-        </div>
-    </div>
+  </div>
 </article>

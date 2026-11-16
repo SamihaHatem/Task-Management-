@@ -1,4 +1,3 @@
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StatisticsCards } from './statistics-cards';
 import { StatisticI } from '../../../../core/models/statistic-i';
@@ -98,9 +97,7 @@ describe('StatisticsCards', () => {
     const icons = compiled.querySelectorAll('.stat-icon');
 
     expect(icons[0].textContent).toContain('📋');
-    expect((icons[0] as HTMLElement).style.backgroundColor).toBe(
-      'rgb(59, 130, 246)',
-    );
+    expect((icons[0] as HTMLElement).style.backgroundColor).toBe('rgb(59, 130, 246)');
   });
 
   it('should render no cards when statistics are empty', () => {

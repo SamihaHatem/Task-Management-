@@ -1,25 +1,6 @@
 {
   "tasks": [
     {
-      "id": "task-001",
-      "title": "Design new homepage layout",
-      "description": "Create wireframes and mockups for the new homepage redesign with modern UI elements",
-      "status": "todo",
-      "priority": "high",
-      "dueDate": "2026-11-17",
-      "assignee": {
-        "id": "user-001",
-        "name": "John Doe",
-        "avatar": "JD",
-        "email": "john.doe@company.com"
-      },
-      "tags": [
-        "Design"
-      ],
-      "createdAt": "2026-11-13T22:31:10.053Z",
-      "updatedAt": "2026-11-15T22:31:10.053Z"
-    },
-    {
       "id": "task-002",
       "title": "Update documentation",
       "description": "Review and update API documentation for v2.0 release",
@@ -32,9 +13,7 @@
         "avatar": "SS",
         "email": "sarah.smith@company.com"
       },
-      "tags": [
-        "Documentation"
-      ],
+      "tags": ["Documentation"],
       "createdAt": "2026-11-12T22:31:10.053Z",
       "updatedAt": "2026-11-14T22:31:10.053Z"
     },
@@ -51,9 +30,7 @@
         "avatar": "MJ",
         "email": "mike.johnson@company.com"
       },
-      "tags": [
-        "Admin"
-      ],
+      "tags": ["Admin"],
       "createdAt": "2026-11-11T22:31:10.053Z",
       "updatedAt": "2026-11-14T22:31:10.053Z"
     },
@@ -71,9 +48,7 @@
         "avatar": "SS",
         "email": "sarah.smith@company.com"
       },
-      "tags": [
-        "Finance"
-      ],
+      "tags": ["Finance"],
       "createdAt": "2026-10-30T22:31:10.053Z",
       "updatedAt": "2026-11-15T22:31:10.053Z"
     },
@@ -91,9 +66,7 @@
         "avatar": "ED",
         "email": "emily.davis@company.com"
       },
-      "tags": [
-        "Research"
-      ],
+      "tags": ["Research"],
       "createdAt": "2026-10-31T22:31:10.053Z",
       "updatedAt": "2026-11-14T22:31:10.053Z"
     },
@@ -110,9 +83,7 @@
         "avatar": "ED",
         "email": "emily.davis@company.com"
       },
-      "tags": [
-        "Frontend"
-      ],
+      "tags": ["Frontend"],
       "createdAt": "2026-11-10T22:31:10.053Z",
       "updatedAt": "2026-11-15T22:31:10.053Z"
     },
@@ -129,9 +100,7 @@
         "avatar": "JD",
         "email": "john.doe@company.com"
       },
-      "tags": [
-        "Backend"
-      ],
+      "tags": ["Backend"],
       "createdAt": "2026-11-08T22:31:10.053Z",
       "updatedAt": "2026-11-15T22:31:10.053Z"
     },
@@ -148,9 +117,7 @@
         "avatar": "SS",
         "email": "sarah.smith@company.com"
       },
-      "tags": [
-        "Performance"
-      ],
+      "tags": ["Performance"],
       "createdAt": "2026-11-09T22:31:10.053Z",
       "updatedAt": "2026-11-14T22:31:10.053Z"
     },
@@ -167,9 +134,7 @@
         "avatar": "MJ",
         "email": "mike.johnson@company.com"
       },
-      "tags": [
-        "Backend"
-      ],
+      "tags": ["Backend"],
       "createdAt": "2026-11-07T22:31:10.053Z",
       "updatedAt": "2026-11-15T22:31:10.053Z"
     },
@@ -186,31 +151,9 @@
         "avatar": "ED",
         "email": "emily.davis@company.com"
       },
-      "tags": [
-        "Frontend"
-      ],
+      "tags": ["Frontend"],
       "createdAt": "2026-11-06T22:31:10.053Z",
       "updatedAt": "2026-11-14T22:31:10.053Z"
-    },
-    {
-      "id": "task-009",
-      "title": "Fix critical login bug",
-      "description": "Resolved issue preventing users from logging in on mobile devices",
-      "status": "done",
-      "priority": "high",
-      "dueDate": "2026-11-14",
-      "completedAt": "2026-11-15T22:31:10.053Z",
-      "assignee": {
-        "id": "user-003",
-        "name": "Mike Johnson",
-        "avatar": "MJ",
-        "email": "mike.johnson@company.com"
-      },
-      "tags": [
-        "Bug Fix"
-      ],
-      "createdAt": "2026-11-13T22:31:10.053Z",
-      "updatedAt": "2026-11-15T22:31:10.053Z"
     },
     {
       "id": "task-012",
@@ -226,9 +169,7 @@
         "avatar": "ED",
         "email": "emily.davis@company.com"
       },
-      "tags": [
-        "Refactoring"
-      ],
+      "tags": ["Refactoring"],
       "createdAt": "2026-11-03T22:31:10.053Z",
       "updatedAt": "2026-11-12T22:31:10.053Z"
     },
@@ -246,9 +187,7 @@
         "avatar": "MJ",
         "email": "mike.johnson@company.com"
       },
-      "tags": [
-        "Maintenance"
-      ],
+      "tags": ["Maintenance"],
       "createdAt": "2026-11-01T22:31:10.053Z",
       "updatedAt": "2026-11-10T22:31:10.053Z"
     },

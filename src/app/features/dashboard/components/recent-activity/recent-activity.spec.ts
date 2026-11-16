@@ -1,4 +1,3 @@
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RecentActivity } from './recent-activity';
 import { RecentActivityI } from '../../../../core/models/recent-activity-i';
@@ -47,9 +46,7 @@ describe('RecentActivity', () => {
   it('should display the activity section heading', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
-    expect(compiled.querySelector('h2')?.textContent).toContain(
-      'Recent Activity',
-    );
+    expect(compiled.querySelector('h2')?.textContent).toContain('Recent Activity');
   });
 
   it('should render all activities', () => {

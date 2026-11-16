@@ -1,31 +1,31 @@
 <app-tasks-header (createTask)="openTaskForm()" />
 
 @if (tasks.isLoading()) {
-<div class="api-state">
+  <div class="api-state">
     <p>Loading tasks...</p>
-</div>
+  </div>
 } @else if (tasks.error()) {
-<div class="api-state error-state">
+  <div class="api-state error-state">
     <h3>Something went wrong!</h3>
     <p>We couldn't load your tasks. Please try again.</p>
 
-    <button type="button" (click)="tasks.reload()">
-        Try Again
-    </button>
-</div>
+    <button type="button" (click)="tasks.reload()">Try Again</button>
+  </div>
 } @else {
-@if (users.isLoading()) {
-<p>Loading team members...</p>
-} @else if (users.error()) {
-<div class="api-state error-state">
-    <p>Couldn't load team members.</p>
-    <button type="button" (click)="users.reload()">
-        Retry
-    </button>
-</div>
-}
+  @if (users.isLoading()) {
+    <p>Loading team members...</p>
+  } @else if (users.error()) {
+    <div class="api-state error-state">
+      <p>Couldn't load team members.</p>
+      <button type="button" (click)="users.reload()">Retry</button>
+    </div>
+  }
 
-<app-task-filters [assignees]="users.value() ?? []" (filtersChange)="onFiltersChange($event)" />
+  <app-task-filters [assignees]="users.value() ?? []" (filtersChange)="onFiltersChange($event)" />
 
-<app-task-board [tasks]="filteredTasks()" (editTask)="openEditTaskForm($event)" (deleteTask)="deleteTask($event)" />
+  <app-task-board
+    [tasks]="filteredTasks()"
+    (editTask)="openEditTaskForm($event)"
+    (deleteTask)="deleteTask($event)"
+  />
 }

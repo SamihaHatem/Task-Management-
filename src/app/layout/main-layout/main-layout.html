@@ -1,14 +1,17 @@
 <app-header [isMobile]="isMobile()" (menuClick)="toggleSidenav()" />
 <mat-sidenav-container class="app-layout">
-    <mat-sidenav [mode]="isMobile() ? 'over' : 'side'" [opened]="isMobile() ? isSidenavOpen() : true"
-        class="app-sidenav" (click)="closeSidenavOnMobile()">
-        <app-sidebar />
-    </mat-sidenav>
+  <mat-sidenav
+    [mode]="isMobile() ? 'over' : 'side'"
+    [opened]="isMobile() ? isSidenavOpen() : true"
+    class="app-sidenav"
+    (click)="closeSidenavOnMobile()"
+  >
+    <app-sidebar />
+  </mat-sidenav>
 
-    <mat-sidenav-content class="main-area">
-
-        <main class="main-content">
-            <router-outlet />
-        </main>
-    </mat-sidenav-content>
+  <mat-sidenav-content class="main-area">
+    <main class="main-content">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
 </mat-sidenav-container>

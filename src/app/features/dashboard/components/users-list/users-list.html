@@ -1,33 +1,31 @@
 <section class="users-list">
-    <div class="section-header">
-        <h3>Team Members</h3>
-        <span>{{ users.value()?.length ?? 0 }} Members</span>
-    </div>
+  <div class="section-header">
+    <h3>Team Members</h3>
+    <span>{{ users.value()?.length ?? 0 }} Members</span>
+  </div>
 
-    @if (users.isLoading()) {
+  @if (users.isLoading()) {
     <p>Loading team members...</p>
-    }@else if (users.error()) {
+  } @else if (users.error()) {
     <div class="api-state error-state">
-        <p>Failed to load team members.</p>
+      <p>Failed to load team members.</p>
 
-        <button type="button" (click)="users.reload()">
-            Try Again
-        </button>
+      <button type="button" (click)="users.reload()">Try Again</button>
     </div>
-    } @else {
+  } @else {
     <div class="users-grid">
-        @for (user of users.value() ?? []; track user.id) {
+      @for (user of users.value() ?? []; track user.id) {
         <div class="user-card">
-            <div class="avatar">
-                {{ user.avatar }}
-            </div>
+          <div class="avatar">
+            {{ user.avatar }}
+          </div>
 
-            <div class="user-info">
-                <h4>{{ user.name }}</h4>
-                <p>{{ user.email }}</p>
-            </div>
+          <div class="user-info">
+            <h4>{{ user.name }}</h4>
+            <p>{{ user.email }}</p>
+          </div>
         </div>
-        }
+      }
     </div>
-    }
+  }
 </section>

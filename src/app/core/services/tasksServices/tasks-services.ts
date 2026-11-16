@@ -9,9 +9,7 @@ import { Observable } from 'rxjs';
 export class TasksServices {
   private readonly apiUrl = 'http://localhost:3000/tasks';
 
-  readonly tasksResource = httpResource<TaskI[]>(
-    () => this.apiUrl
-  );
+  readonly tasksResource = httpResource<TaskI[]>(() => this.apiUrl);
 
   private readonly http = inject(HttpClient);
 
@@ -26,7 +24,7 @@ export class TasksServices {
       createdAt: now,
       updatedAt: now,
       isOverdue: false,
-      completedAt: ''
+      completedAt: '',
     };
 
     return this.http.post<TaskI>(this.apiUrl, newTask);
@@ -34,10 +32,7 @@ export class TasksServices {
 
   updateTask(
     id: string,
-    task: Omit<
-      TaskI,
-      'id' | 'createdAt' | 'updatedAt' | 'isOverdue' | 'completedAt'
-    >,
+    task: Omit<TaskI, 'id' | 'createdAt' | 'updatedAt' | 'isOverdue' | 'completedAt'>,
   ): Observable<TaskI> {
     const now = new Date().toISOString();
 
@@ -46,10 +41,7 @@ export class TasksServices {
       updatedAt: now,
     };
 
-    return this.http.patch<TaskI>(
-      `${this.apiUrl}/${id}`,
-      updatedTask,
-    );
+    return this.http.patch<TaskI>(`${this.apiUrl}/${id}`, updatedTask);
   }
 
   deleteTask(id: string): Observable<void> {

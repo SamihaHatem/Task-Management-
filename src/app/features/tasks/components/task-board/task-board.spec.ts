@@ -1,4 +1,3 @@
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TaskBoard } from './task-board';
 import { TaskI } from '../../../../core/models/task-i';
@@ -90,24 +89,24 @@ describe('TaskBoard', () => {
   it('should group todo tasks in the To Do column', () => {
     fixture.componentRef.setInput('tasks', mockTasks);
 
-    expect(
-      component.columns().find((column) => column.status === 'todo')?.tasks,
-    ).toEqual([mockTasks[0]]);
+    expect(component.columns().find((column) => column.status === 'todo')?.tasks).toEqual([
+      mockTasks[0],
+    ]);
   });
 
   it('should group in-progress tasks in the In Progress column', () => {
     fixture.componentRef.setInput('tasks', mockTasks);
 
-    expect(
-      component.columns().find((column) => column.status === 'in_progress')?.tasks,
-    ).toEqual([mockTasks[1]]);
+    expect(component.columns().find((column) => column.status === 'in_progress')?.tasks).toEqual([
+      mockTasks[1],
+    ]);
   });
 
   it('should group completed tasks in the Done column', () => {
     fixture.componentRef.setInput('tasks', mockTasks);
 
-    expect(
-      component.columns().find((column) => column.status === 'done')?.tasks,
-    ).toEqual([mockTasks[2]]);
+    expect(component.columns().find((column) => column.status === 'done')?.tasks).toEqual([
+      mockTasks[2],
+    ]);
   });
 });

@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { DashboardServices } from '../../../../core/services/dashboardServices/dashboard-services';
 import { StatisticsCards } from '../../components/statistics-cards/statistics-cards';
 import { TasksServices } from '../../../../core/services/tasksServices/tasks-services';
@@ -18,7 +13,6 @@ import { UsersList } from '../../components/users-list/users-list';
   templateUrl: './dashboard-page.html',
   styleUrl: './dashboard-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-
 })
 export class DashboardPage {
   private readonly dashboardApi = inject(DashboardServices);
@@ -61,11 +55,8 @@ export class DashboardPage {
         }
 
         return activities;
-      }).sort(
-        (a, b) =>
-          new Date(b.timestamp).getTime() -
-          new Date(a.timestamp).getTime(),
-      )
+      })
+      .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
       .slice(0, 5);
   });
 }

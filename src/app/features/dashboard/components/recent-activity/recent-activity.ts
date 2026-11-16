@@ -1,8 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RecentActivityI } from '../../../../core/models/recent-activity-i';
 import { DatePipe } from '@angular/common';
 
@@ -15,5 +11,4 @@ import { DatePipe } from '@angular/common';
 })
 export class RecentActivity {
   readonly activities = input.required<RecentActivityI[]>();
-
 }

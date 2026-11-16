@@ -1,4 +1,3 @@
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TaskCard } from './task-card';
 import { TaskI } from '../../../../core/models/task-i';
@@ -46,12 +45,8 @@ describe('TaskCard', () => {
   it('should display the task title and description', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
-    expect(compiled.querySelector('h3')?.textContent).toContain(
-      mockTask.title,
-    );
-    expect(compiled.querySelector('.description')?.textContent).toContain(
-      mockTask.description,
-    );
+    expect(compiled.querySelector('h3')?.textContent).toContain(mockTask.title);
+    expect(compiled.querySelector('.description')?.textContent).toContain(mockTask.description);
   });
 
   it('should display the task priority', () => {
@@ -74,9 +69,7 @@ describe('TaskCard', () => {
   it('should display assignee information', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
-    expect(compiled.querySelector('.assignee')?.textContent).toContain(
-      mockTask.assignee.name,
-    );
+    expect(compiled.querySelector('.assignee')?.textContent).toContain(mockTask.assignee.name);
     expect(compiled.querySelector('.assignee-avatar')?.textContent).toContain(
       mockTask.assignee.avatar,
     );

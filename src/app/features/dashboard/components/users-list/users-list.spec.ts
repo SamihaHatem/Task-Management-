@@ -1,4 +1,3 @@
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { signal } from '@angular/core';
 import { UsersList } from './users-list';
@@ -81,6 +80,4 @@ describe('UsersList', () => {
 
     expect(compiled.textContent).toContain('Loading team members...');
   });
-
-
 });

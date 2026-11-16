@@ -1,6 +1,6 @@
 export interface AssigneeI {
-    id: string;
-    name: string;
-    avatar: string;
-    email: string;
+  id: string;
+  name: string;
+  avatar: string;
+  email: string;
 }

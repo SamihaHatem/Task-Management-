@@ -10,5 +10,4 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class TasksHeader {
   readonly createTask = output<void>();
-
 }

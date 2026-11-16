@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Sidebar } from '../sidebar/sidebar';
 import { RouterOutlet } from '@angular/router';
 import { Header } from '../header/header';
@@ -15,12 +10,8 @@ import { map } from 'rxjs';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [
-    RouterOutlet,
-    MatSidenavModule,
-    Sidebar,
-    Header,
-  ], templateUrl: './main-layout.html',
+  imports: [RouterOutlet, MatSidenavModule, Sidebar, Header],
+  templateUrl: './main-layout.html',
   styleUrl: './main-layout.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -28,9 +19,7 @@ export class MainLayout {
   private readonly breakpointObserver = inject(BreakpointObserver);
 
   readonly isMobile = toSignal(
-    this.breakpointObserver
-      .observe('(max-width: 768px)')
-      .pipe(map(({ matches }) => matches)),
+    this.breakpointObserver.observe('(max-width: 768px)').pipe(map(({ matches }) => matches)),
     { initialValue: false },
   );
 

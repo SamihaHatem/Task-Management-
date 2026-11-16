@@ -17,7 +17,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   imports: [ReactiveFormsModule],
   templateUrl: './task-filters.html',
   styleUrl: './task-filters.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskFilters {
   readonly assignees = input.required<AssigneeI[]>();
@@ -36,11 +36,8 @@ export class TaskFilters {
   });
 
   constructor() {
-    this.filtersForm.valueChanges
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(() => {
-        this.filtersChange.emit(this.filtersForm.getRawValue());
-      });
+    this.filtersForm.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
+      this.filtersChange.emit(this.filtersForm.getRawValue());
+    });
   }
-
 }

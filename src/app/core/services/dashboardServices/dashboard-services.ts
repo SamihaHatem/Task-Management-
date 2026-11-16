@@ -8,7 +8,5 @@ import { StatisticI } from '../../models/statistic-i';
 export class DashboardServices {
   private readonly apiUrl = 'http://localhost:3000/statistics';
 
-  readonly statisticsResource = httpResource<StatisticI[]>(
-    () => this.apiUrl
-  );
+  readonly statisticsResource = httpResource<StatisticI[]>(() => this.apiUrl);
 }

@@ -1,12 +1,6 @@
-
 import { TestBed } from '@angular/core/testing';
-import {
-  provideHttpClient,
-} from '@angular/common/http';
-import {
-  HttpTestingController,
-  provideHttpClientTesting,
-} from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 
 import { TasksServices } from './tasks-services';
 import { TaskI } from '../../models/task-i';
@@ -17,10 +11,7 @@ describe('TasksServices', () => {
 
   const apiUrl = 'http://localhost:3000/tasks';
 
-  const taskPayload: Omit<
-    TaskI,
-    'id' | 'createdAt' | 'updatedAt' | 'isOverdue' | 'completedAt'
-  > = {
+  const taskPayload: Omit<TaskI, 'id' | 'createdAt' | 'updatedAt' | 'isOverdue' | 'completedAt'> = {
     title: 'Implement dashboard',
     description: 'Build the dashboard page',
     status: 'in_progress',
@@ -37,11 +28,7 @@ describe('TasksServices', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        TasksServices,
-        provideHttpClient(),
-        provideHttpClientTesting(),
-      ],
+      providers: [TasksServices, provideHttpClient(), provideHttpClientTesting()],
     });
 
     service = TestBed.inject(TasksServices);

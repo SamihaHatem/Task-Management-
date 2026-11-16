@@ -5,16 +5,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-sidebar',
-  imports:
-    [
-      RouterLink,
-      RouterLinkActive,
-      MatListModule,
-      MatIconModule,
-      MatButtonModule
-    ],
+  imports: [RouterLink, RouterLinkActive, MatListModule, MatIconModule, MatButtonModule],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Sidebar { }
+export class Sidebar {}

@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-  output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { TaskI } from '../../../../core/models/task-i';
 import { DatePipe, TitleCasePipe } from '@angular/common';
 @Component({

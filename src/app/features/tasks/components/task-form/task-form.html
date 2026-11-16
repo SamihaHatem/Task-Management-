@@ -4,37 +4,37 @@
     <input id="title" type="text" formControlName="title" placeholder="Enter task title" />
 
     @if (taskForm.controls.title.touched && taskForm.controls.title.errors) {
-    <small class="error">
-      @if (taskForm.controls.title.hasError('required')) {
-      Title is required.
-      } @else if (taskForm.controls.title.hasError('maxlength')) {
-      Title cannot exceed 100 characters.
-      }
-      @else if (taskForm.controls.title.hasError('whitespace')) {
-      Title cannot contain only spaces.
-      }
-    </small>
+      <small class="error">
+        @if (taskForm.controls.title.hasError('required')) {
+          Title is required.
+        } @else if (taskForm.controls.title.hasError('maxlength')) {
+          Title cannot exceed 100 characters.
+        } @else if (taskForm.controls.title.hasError('whitespace')) {
+          Title cannot contain only spaces.
+        }
+      </small>
     }
   </div>
 
   <div class="form-field">
     <label for="description">Description</label>
-    <textarea id="description" formControlName="description" placeholder="Describe the task" rows="4"></textarea>
+    <textarea
+      id="description"
+      formControlName="description"
+      placeholder="Describe the task"
+      rows="4"
+    ></textarea>
 
-    @if (
-    taskForm.controls.description.touched &&
-    taskForm.controls.description.errors
-    ) {
-    <small class="error">
-      @if (taskForm.controls.description.hasError('required')) {
-      Description is required.
-      } @else if (taskForm.controls.description.hasError('maxlength')) {
-      Description cannot exceed 500 characters.
-      }
-      @else if (taskForm.controls.description.hasError('whitespace')) {
-      Description cannot contain only spaces.
-      }
-    </small>
+    @if (taskForm.controls.description.touched && taskForm.controls.description.errors) {
+      <small class="error">
+        @if (taskForm.controls.description.hasError('required')) {
+          Description is required.
+        } @else if (taskForm.controls.description.hasError('maxlength')) {
+          Description cannot exceed 500 characters.
+        } @else if (taskForm.controls.description.hasError('whitespace')) {
+          Description cannot contain only spaces.
+        }
+      </small>
     }
   </div>
 
@@ -63,11 +63,8 @@
       <label for="dueDate">Due Date</label>
       <input id="dueDate" type="date" formControlName="dueDate" />
 
-      @if (
-      taskForm.controls.dueDate.touched &&
-      taskForm.controls.dueDate.hasError('required')
-      ) {
-      <small class="error">Due date is required.</small>
+      @if (taskForm.controls.dueDate.touched && taskForm.controls.dueDate.hasError('required')) {
+        <small class="error">Due date is required.</small>
       }
     </div>
 
@@ -77,15 +74,14 @@
         <option value="">Select assignee</option>
 
         @for (assignee of assignees(); track assignee.id) {
-        <option [value]="assignee.id">{{ assignee.name }}</option>
+          <option [value]="assignee.id">{{ assignee.name }}</option>
         }
       </select>
 
       @if (
-      taskForm.controls.assigneeId.touched &&
-      taskForm.controls.assigneeId.hasError('required')
+        taskForm.controls.assigneeId.touched && taskForm.controls.assigneeId.hasError('required')
       ) {
-      <small class="error">Please select an assignee.</small>
+        <small class="error">Please select an assignee.</small>
       }
     </div>
   </div>

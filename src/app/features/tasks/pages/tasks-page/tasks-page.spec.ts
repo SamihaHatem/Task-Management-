@@ -20,7 +20,6 @@ describe('TasksPage', () => {
     expect(component).toBeTruthy();
   });
 
-
   it('should return all tasks when no filters are applied', () => {
     expect(component.filteredTasks()).toEqual(component.allTasks());
   });
@@ -49,10 +48,13 @@ describe('TasksPage', () => {
     expect(component.filteredTasks().length).toBeGreaterThan(0);
 
     expect(
-      component.filteredTasks().every((task) =>
-        task.title.toLowerCase().includes('documentation') ||
-        task.description.toLowerCase().includes('documentation')
-      )
+      component
+        .filteredTasks()
+        .every(
+          (task) =>
+            task.title.toLowerCase().includes('documentation') ||
+            task.description.toLowerCase().includes('documentation'),
+        ),
     ).toBe(true);
   });
   it('should filter tasks by status', () => {
@@ -65,11 +67,7 @@ describe('TasksPage', () => {
 
     expect(component.filteredTasks().length).toBeGreaterThan(0);
 
-    expect(
-      component.filteredTasks().every(
-        (task) => task.status === 'in_progress',
-      ),
-    ).toBe(true);
+    expect(component.filteredTasks().every((task) => task.status === 'in_progress')).toBe(true);
   });
 
   it('should filter tasks by priority', () => {
@@ -80,10 +78,6 @@ describe('TasksPage', () => {
       assigneeId: 'all',
     });
 
-    expect(
-      component.filteredTasks().every(
-        (task) => task.priority === 'high',
-      ),
-    ).toBe(true);
+    expect(component.filteredTasks().every((task) => task.priority === 'high')).toBe(true);
   });
 });

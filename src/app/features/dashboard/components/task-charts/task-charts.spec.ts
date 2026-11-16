@@ -1,4 +1,3 @@
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TaskCharts } from './task-charts';
 import { TaskI } from '../../../../core/models/task-i';
@@ -90,22 +89,14 @@ describe('TaskCharts', () => {
   it('should calculate task counts for each status', () => {
     fixture.componentRef.setInput('tasks', mockTasks);
 
-    expect(component.statusChartData().labels).toEqual([
-      'To Do',
-      'In Progress',
-      'Done',
-    ]);
+    expect(component.statusChartData().labels).toEqual(['To Do', 'In Progress', 'Done']);
     expect(component.statusChartData().datasets[0].data).toEqual([1, 1, 1]);
   });
 
   it('should calculate task counts for each priority', () => {
     fixture.componentRef.setInput('tasks', mockTasks);
 
-    expect(component.priorityChartData().labels).toEqual([
-      'High',
-      'Medium',
-      'Low',
-    ]);
+    expect(component.priorityChartData().labels).toEqual(['High', 'Medium', 'Low']);
     expect(component.priorityChartData().datasets[0].data).toEqual([1, 1, 1]);
   });
 

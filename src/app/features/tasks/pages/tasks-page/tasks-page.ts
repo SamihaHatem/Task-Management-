@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  inject,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { TasksServices } from '../../../../core/services/tasksServices/tasks-services';
 import { TasksHeader } from '../../components/tasks-header/tasks-header';
 import { TaskBoard } from '../../components/task-board/task-board';
@@ -14,15 +8,14 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { TaskForm } from '../../components/task-form/task-form';
 import { TaskI } from '../../../../core/models/task-i';
 import { UsersServices } from '../../../../core/services/usersServices/users-services';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-tasks-page',
   imports: [TasksHeader, TaskBoard, TaskFilters, MatDialogModule],
   templateUrl: './tasks-page.html',
   styleUrl: './tasks-page.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TasksPage {
   private readonly tasksApi = inject(TasksServices);
@@ -54,22 +47,14 @@ export class TasksPage {
         task.title.toLowerCase().includes(searchTerm) ||
         task.description.toLowerCase().includes(searchTerm);
 
-      const matchesStatus =
-        filters.status === 'all' || task.status === filters.status;
+      const matchesStatus = filters.status === 'all' || task.status === filters.status;
 
-      const matchesPriority =
-        filters.priority === 'all' || task.priority === filters.priority;
+      const matchesPriority = filters.priority === 'all' || task.priority === filters.priority;
 
       const matchesAssignee =
-        filters.assigneeId === 'all' ||
-        task.assignee.id === filters.assigneeId;
+        filters.assigneeId === 'all' || task.assignee.id === filters.assigneeId;
 
-      return (
-        matchesSearch &&
-        matchesStatus &&
-        matchesPriority &&
-        matchesAssignee
-      );
+      return matchesSearch && matchesStatus && matchesPriority && matchesAssignee;
     });
   });
 
@@ -88,41 +73,41 @@ export class TasksPage {
 
     dialogRef.componentRef?.setInput('assignees', users);
 
-    console.log('11')
+    console.log('11');
     dialogRef.componentInstance.save.subscribe((formValue) => {
-      const assignee = (this.users.value() ?? []).find(
-        (user) => user.id === formValue.assigneeId,
-      );
+      const assignee = (this.users.value() ?? []).find((user) => user.id === formValue.assigneeId);
 
       if (!assignee) {
         return;
       }
 
-      console.log('22')
+      console.log('22');
 
-      this.tasksApi.createTask({
-        ...formValue,
-        assignee,
-        tags: [],
-      }).subscribe({
-        next: () => {
-          this.tasks.reload();
-          dialogRef.close();
+      this.tasksApi
+        .createTask({
+          ...formValue,
+          assignee,
+          tags: [],
+        })
+        .subscribe({
+          next: () => {
+            this.tasks.reload();
+            dialogRef.close();
 
-          this.snackBar.open('Task created successfully!', 'Close', {
-            duration: 3000,
-            horizontalPosition: 'end',
-            verticalPosition: 'top',
-          });
-        },
-        error: () => {
-          this.snackBar.open('Failed to create task. Please try again.', 'Close', {
-            duration: 4000,
-            horizontalPosition: 'end',
-            verticalPosition: 'top',
-          });
-        },
-      });
+            this.snackBar.open('Task created successfully!', 'Close', {
+              duration: 3000,
+              horizontalPosition: 'end',
+              verticalPosition: 'top',
+            });
+          },
+          error: () => {
+            this.snackBar.open('Failed to create task. Please try again.', 'Close', {
+              duration: 4000,
+              horizontalPosition: 'end',
+              verticalPosition: 'top',
+            });
+          },
+        });
     });
   }
 
@@ -139,44 +124,42 @@ export class TasksPage {
     dialogRef.componentRef?.setInput('initialTask', task);
 
     dialogRef.componentInstance.save.subscribe((formValue) => {
-      const assignee = (this.users.value() ?? []).find(
-        (user) => user.id === formValue.assigneeId,
-      );
+      const assignee = (this.users.value() ?? []).find((user) => user.id === formValue.assigneeId);
 
       if (!assignee) {
         return;
       }
 
-      this.tasksApi.updateTask(task.id, {
-        ...formValue,
-        assignee,
-        tags: task.tags,
-      }).subscribe({
-        next: () => {
-          this.tasks.reload();
-          dialogRef.close();
+      this.tasksApi
+        .updateTask(task.id, {
+          ...formValue,
+          assignee,
+          tags: task.tags,
+        })
+        .subscribe({
+          next: () => {
+            this.tasks.reload();
+            dialogRef.close();
 
-          this.snackBar.open('Task updated successfully!', 'Close', {
-            duration: 3000,
-            horizontalPosition: 'end',
-            verticalPosition: 'top',
-          });
-        },
-        error: () => {
-          this.snackBar.open('Failed to update task. Please try again.', 'Close', {
-            duration: 4000,
-            horizontalPosition: 'end',
-            verticalPosition: 'top',
-          });
-        },
-      });
+            this.snackBar.open('Task updated successfully!', 'Close', {
+              duration: 3000,
+              horizontalPosition: 'end',
+              verticalPosition: 'top',
+            });
+          },
+          error: () => {
+            this.snackBar.open('Failed to update task. Please try again.', 'Close', {
+              duration: 4000,
+              horizontalPosition: 'end',
+              verticalPosition: 'top',
+            });
+          },
+        });
     });
   }
 
   deleteTask(task: TaskI): void {
-    const confirmed = confirm(
-      `Are you sure you want to delete "${task.title}"?`,
-    );
+    const confirmed = confirm(`Are you sure you want to delete "${task.title}"?`);
 
     if (!confirmed) {
       return;

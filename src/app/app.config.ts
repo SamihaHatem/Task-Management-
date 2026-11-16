@@ -10,7 +10,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideHttpClient( withInterceptors([retryInterceptorInterceptor])),
-     provideCharts(withDefaultRegisterables())
-  ]
+    provideHttpClient(withInterceptors([retryInterceptorInterceptor])),
+    provideCharts(withDefaultRegisterables()),
+  ],
 };

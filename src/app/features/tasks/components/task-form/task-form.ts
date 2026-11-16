@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-  OnInit,
-  output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnInit, output } from '@angular/core';
 import { AssigneeI } from '../../../../core/models/assignee-i';
 import { TaskStatus, TaskPriority, TaskI } from '../../../../core/models/task-i';
 import {
@@ -16,9 +10,7 @@ import {
   Validators,
 } from '@angular/forms';
 
-function noWhitespaceValidator(
-  control: AbstractControl,
-): ValidationErrors | null {
+function noWhitespaceValidator(control: AbstractControl): ValidationErrors | null {
   return control.value?.trim() ? null : { whitespace: true };
 }
 
